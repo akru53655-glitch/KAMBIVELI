@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kambi</title>
+    <style>
+        :root {
+            /* Define a color for easy changing */
+            --glow-color: #00ffcc; /* Bright cyan */
+            --dark-bg: #111;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--dark-bg);
+            margin: 0;
+            font-family: sans-serif;
+            overflow: hidden; /* Hide the glare overflow */
+        }
+
+        .glowing-box {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            background-color: #333;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+            box-shadow: 
+                0 0 10px var(--glow-color), /* Subtle glow */
+                0 0 20px var(--glow-color), /* Medium glow */
+                0 0 40px var(--glow-color), /* Strong glow */
+                0 0 80px var(--glow-color), /* Halo effect */
+                inset 0 0 10px var(--glow-color); /* Inner glow */
+            /* Optional: Add a subtle animation to the glow */
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        /* --- GLOW ANIMATION --- */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 
+                    0 0 10px var(--glow-color), 
+                    0 0 20px var(--glow-color),
+                    0 0 40px var(--glow-color);
+            }
+            100% {
+                box-shadow: 
+                    0 0 5px var(--glow-color), 
+                    0 0 15px var(--glow-color), 
+                    0 0 30px var(--glow-color), 
+                    0 0 60px var(--glow-color);
+            }
+        }
+
+        /* --- GLITTER/GLARE EFFECT --- */
+        .glowing-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%; /* Start position off-screen to the left */
+            width: 50%; /* Width of the glare streak */
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%, /* Transparent start */
+                rgba(255, 255, 255, 0.4) 50%, /* White highlight */
+                rgba(255, 255, 255, 0) 100% /* Transparent end */
+            );
+            transform: skewX(-20deg); /* Slant the streak */
+            pointer-events: none; /* Allows clicks to go through */
+
+            /* Optional: Animate the glare streak */
+            animation: shine-glare 2s infinite linear;
+        }
+
+        /* Glare animation: sweeps from left to right */
+        @keyframes shine-glare {
+            0% {
+                left: -75%; /* Starts before the box */
+            }
+            100% {
+                left: 100%; /* Ends after the box */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glowing-box">
+        KAMBIVELI
+<a href="kambi.html">INFO 
+    </div>
+    
+</body>
+</html>
